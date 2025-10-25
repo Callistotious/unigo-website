@@ -1,0 +1,132 @@
+:root{
+    --orange:#ff7a00;
+    --muted:#f6f6f6;
+    --card:#ffffff;
+    --text:#222;
+    --shadow: 0 6px 18px rgba(16,24,40,0.06);
+    --radius:18px;
+    --gap:20px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+    margin:0;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: #ffffff; /* white background as requested */
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header */
+header{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 28px;
+    border-bottom:1px solid #f0f0f0;
+}
+.hdr-left{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+.btn{
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid #eee;
+    background:transparent;
+    font-weight:600;
+    color:var(--text);
+    cursor:pointer;
+}
+.btn.primary{
+    background:var(--orange);
+    color:white;
+    border-color:transparent;
+    box-shadow: none;
+}
+
+.hdr-right{
+    font-weight:700;
+    color:var(--orange);
+    font-size:20px;
+}
+
+/* Main layout */
+.main{
+    display:flex;
+    gap:var(--gap);
+    padding:28px;
+    height:calc(100vh - 72px);
+}
+
+.left-col{
+    width:40%;
+    min-width:260px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    align-items:stretch;
+}
+
+.ride-card{
+    background:var(--card);
+    padding:20px;
+    border-radius:20px; /* curved edges */
+    box-shadow:var(--shadow);
+    border:1px solid rgba(0,0,0,0.03);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:transform .18s ease, box-shadow .18s ease;
+}
+.ride-card:hover{transform:translateY(-6px); box-shadow: 0 12px 30px rgba(16,24,40,0.08)}
+
+.ride-card h2{
+    margin:0;
+    color:var(--orange); /* main headings orange */
+    font-size:18px;
+    font-weight:700;
+}
+.ride-card p{margin:0;color:#555;font-size:14px}
+
+/* Right column: square that fills right side */
+.right-col{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* The square box: keep it responsive and square using aspect-ratio */
+.square{
+    width:100%;
+    max-width:720px;
+    aspect-ratio:1/1; /* keeps it a square */
+    background:linear-gradient(180deg, #fff 0%, #fff 100%);
+    border-radius:16px;
+    border:1px solid rgba(0,0,0,0.04);
+    box-shadow:var(--shadow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:28px;
+}
+
+.square-inner{
+    text-align:center;
+}
+.square h1{margin:0; color:var(--orange); font-size:28px}
+.square p{margin-top:8px;color:#555}
+
+/* small screens */
+@media (max-width:900px){
+    .main{flex-direction:column; padding:16px}
+    .left-col{width:100%}
+    .right-col{width:100%}
+    .square{max-width:100%; aspect-ratio:16/9}
+}
+
